@@ -39,7 +39,7 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: # ECR 저장소 명
+          ECR_REPOSITORY: picto
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build --platform arm64 -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
@@ -51,13 +51,13 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: task-definition.json
-          container-name: # 저번 포스팅에서 작성했던 컨테이너 명
+          container-name: photo-manager
           image: ${{ steps.build-image.outputs.image }}
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: # ECS 서비스 명
-          cluster: # ECS 클러스터 명
+          service: photo-manager-service
+          cluster: test-cluster
           wait-for-service-stability: true
