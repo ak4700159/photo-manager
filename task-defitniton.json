@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:339713020746:task-definition/photo-manager-task-definition-v2:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:339713020746:task-definition/photo-manager-definition:3",
     "containerDefinitions": [
         {
             "name": "photo-manager",
-            "image": "339713020746.dkr.ecr.ap-northeast-2.amazonaws.com/picto:latest",
+            "image": "339713020746.dkr.ecr.ap-northeast-2.amazonaws.com/picto:photo-manager",
             "cpu": 0,
             "portMappings": [
                 {
@@ -23,7 +23,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/photo-manager-task-definition-v2",
+                    "awslogs-group": "/ecs/photo-manager-definition",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
@@ -35,10 +35,11 @@
             "systemControls": []
         }
     ],
-    "family": "photo-manager-task-definition-v2",
+    "family": "photo-manager-definition",
     "taskRoleArn": "arn:aws:iam::339713020746:role/task-role",
     "executionRoleArn": "arn:aws:iam::339713020746:role/ecsTaskExecutionRole",
-    "revision": 1,
+    "networkMode": "bridge",
+    "revision": 3,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -83,7 +84,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-12-03T18:02:00.140Z",
+    "registeredAt": "2024-12-05T10:53:47.699Z",
     "registeredBy": "arn:aws:iam::339713020746:root",
     "tags": []
 }
