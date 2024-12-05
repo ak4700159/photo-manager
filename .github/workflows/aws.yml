@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+env:
+  RESOURCE_PATH: ./Server/tripAdvisor/tripAdvisor/src/main/resources/application.yml
 
 jobs:
   deploy:
