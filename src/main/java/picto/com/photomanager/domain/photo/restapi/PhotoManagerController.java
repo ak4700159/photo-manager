@@ -126,8 +126,8 @@ public class PhotoManagerController {
 
 
     // CI / CD 테스트용
-    @GetMapping("/photo-manager/test")
-    public ResponseEntity<String> test() {
-        return ResponseEntity.ok().body("CI/CD deploy");
-    }
+//    @GetMapping("/photo-manager/test")
+//    public ResponseEntity<String> test() {
+//        return ResponseEntity.ok().body("CI/CD deploy");
+//    }
 }
