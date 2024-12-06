@@ -124,7 +124,7 @@ public class PhotoManagerController {
         return ResponseEntity.ok().build();
     }
 
-
+// 12/07...
     // CI / CD 테스트용
 //    @GetMapping("/photo-manager/test")
 //    public ResponseEntity<String> test() {
