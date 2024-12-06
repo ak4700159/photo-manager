@@ -125,4 +125,10 @@ public class PhotoManagerController {
         return ResponseEntity.ok().build();
     }
 
+    // 특정 사진 조회 + 유저 포함
+    @GetMapping("/photo-manager/test")
+    public ResponseEntity<String> test() {
+        return ResponseEntity.ok().body("CI/CD deploy");
+    }
+
 }
