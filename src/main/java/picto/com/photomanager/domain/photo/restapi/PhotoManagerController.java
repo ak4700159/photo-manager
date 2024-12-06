@@ -118,8 +118,7 @@ public class PhotoManagerController {
         try{
             photoManagerService.viewPhoto(eventDTO.getPhotoId(), eventDTO.getUserId());
         } catch (Exception e){
-            System.out.println("viewPhoto error");
-            e.printStackTrace();
+            System.out.println(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         return ResponseEntity.ok().build();
@@ -127,9 +126,8 @@ public class PhotoManagerController {
 
 
     // CI / CD 테스트용
-//    @GetMapping("/photo-manager/test")
-//    public ResponseEntity<String> test() {
-//        return ResponseEntity.ok().body("CI/CD deploy");
-//    }
-
+    @GetMapping("/photo-manager/test")
+    public ResponseEntity<String> test() {
+        return ResponseEntity.ok().body("CI/CD deploy");
+    }
 }
