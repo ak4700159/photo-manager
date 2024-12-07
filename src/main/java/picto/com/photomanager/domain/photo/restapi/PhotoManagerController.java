@@ -93,6 +93,7 @@ public class PhotoManagerController {
         return ResponseEntity.ok().body(photos);
     }
 
+    // 좋아요 클릭
     @PostMapping("/photo-manager/photos/like")
     public ResponseEntity<?> clickLike(@RequestBody PhotoEventDTO eventDTO){
         try {
@@ -103,6 +104,7 @@ public class PhotoManagerController {
         return ResponseEntity.ok().build();
     }
 
+    // 좋아요 해제
     @DeleteMapping("/photo-manager/photos/unlike")
     public ResponseEntity<?> unClickLike(@RequestBody PhotoEventDTO eventDTO){
         try {
@@ -113,6 +115,7 @@ public class PhotoManagerController {
         return ResponseEntity.ok().build();
     }
 
+    // 사진 화면 조회 시
     @PostMapping("/photo-manager/photos/view")
     public ResponseEntity<?> clickPhoto(@RequestBody PhotoEventDTO eventDTO){
         try{
@@ -124,10 +127,9 @@ public class PhotoManagerController {
         return ResponseEntity.ok().build();
     }
 
-// 12/07...
     // CI / CD 테스트용
-//    @GetMapping("/photo-manager/test")
-//    public ResponseEntity<String> test() {
-//        return ResponseEntity.ok().body("CI/CD deploy");
-//    }
+    @GetMapping("/photo-manager/test")
+    public ResponseEntity<String> test() {
+        return ResponseEntity.ok().body("CI/CD deploy");
+    }
 }
